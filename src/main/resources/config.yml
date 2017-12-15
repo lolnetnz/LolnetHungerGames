@@ -1,0 +1,14 @@
+LolnetHungerGames:
+  TeleportOnJoin: false
+  Location:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+    world: world
+  Commands:
+  - "minecraft:gamemode adventure [PLAYER]"
+  - "minecraft:clear [PLAYER]"
+  - "minecraft:title [PLAYER] subtitle {\"text\":\"HungerGames\",\"color\":\"green\",\"extra\":[{\"text\":\" & \",\"color\":\"white\"},{\"text\":\"KitPvP\",\"color\":\"red\"}],\"italic\":\"true\"}"
+  - "minecraft:title [PLAYER] title {\"text\":\"Welcome to\",\"color\":\"yellow\",\"underlined\":\"true\",\"italic\":\"true\"}"

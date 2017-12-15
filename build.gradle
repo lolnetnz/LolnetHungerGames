@@ -1,0 +1,69 @@
+apply plugin: "java"
+
+def signFile = "sign.gradle"
+if (file(signFile).exists()) {
+    apply from: signFile
+}
+
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
+group = "nz.co.lolnet"
+archivesBaseName = "LolnetHungerGames"
+version = "1.0.0"
+
+configurations {
+    provided {
+        compile.extendsFrom(provided)
+    }
+
+    build {
+        if (project.tasks.findByName("signJar")) {
+            return finalizedBy(signJar)
+        }
+
+        return doLast {
+            println("========== [WARNING] ==========")
+            println()
+            println("   This build is not signed!   ")
+            println()
+            println("========== [WARNING] ==========")
+        }
+    }
+}
+
+repositories {
+    jcenter()
+    maven {
+        url("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    }
+    maven {
+        url("https://oss.sonatype.org/content/repositories/snapshots/")
+    }
+}
+
+dependencies {
+    provided("org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
+}
+
+jar {
+    from {
+        (configurations.compile - configurations.provided).collect {
+            if (it.isDirectory()) {
+                return it
+            }
+
+            return zipTree(it)
+        }
+    }
+}
+
+processResources {
+    from("LICENSE")
+    rename("LICENSE", "LICENSE-" + archivesBaseName)
+
+    from (sourceSets.main.resources.srcDirs) {
+        include("plugin.yml")
+        expand("name":archivesBaseName, "version":version)
+    }
+}

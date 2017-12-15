@@ -1,0 +1,14 @@
+name: ${name}
+main: nz.co.lolnet.hungergames.HungerGames
+version: ${version}
+description: HungerGames Helper Plugin.
+author: LX_Gaming
+website: https://www.lolnet.co.nz/
+commands:
+  LolnetHungerGames:
+    description: Main plugin command.
+    usage: /<LolnetHungerGames>
+    aliases: [lolnethungergames]
+permissions:
+  LolnetHungerGames.Reload:
+    description: Reloads the plugin config.
