@@ -1,6 +1,6 @@
 # LolnetHungerGames
 
-[![License](https://lxgaming.github.io/resources/badges/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://www.lolnet.co.nz/resources/badges/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Overview
 LolnetHungerGames is a very basic Bukkit plugin which performs the following tasks when a Player join:
